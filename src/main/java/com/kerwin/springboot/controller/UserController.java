@@ -21,11 +21,11 @@ public class UserController
     public User say(){
         User user = new User();
 
-        user.setName("李四");
+        user.setName("王六");
         user.setPassword("123456");
         user.setAge(18);
         user.setBirthday(new Date());
-        user.setSex(1);
+        user.setSex(2);
         user.setDec(null);
         return user;
     }
