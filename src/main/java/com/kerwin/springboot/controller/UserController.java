@@ -21,7 +21,7 @@ public class UserController
     public User say(){
         User user = new User();
 
-        user.setName("王六");
+        user.setName("李六");
         user.setPassword("123456");
         user.setAge(18);
         user.setBirthday(new Date());
