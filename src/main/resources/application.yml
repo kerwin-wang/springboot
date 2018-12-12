@@ -11,3 +11,39 @@ spring:
       enabled: true
       #设置重启的目录，添加那个目录的文件需要restart
       additional-paths: src/main/java
+    remote:
+      restart:
+        enabled: true
+  #数据源配置
+  datasource:
+      url: jdbc:mysql:192.168.9.23:3306/test
+      username: test
+      password: test
+      driver-class-name: com.mysql.jdbc.Driver
+  #    druid:
+  #      initial-size: 1
+  #      min-idle: 1
+  #      max-active: 20
+  #      test-on-borrow: true
+  #      start-view-servlet:
+  #        allow: true
+#mapper重启
+restart:
+  include:
+    mapper: /mapper-[\\w-\\.]+jar
+    pagehelper: /pagehelper-[\\w-\\.]+jar
+#加载mapper xml
+mybatis:
+  type-aliases-package: com.kerwin.springboot.entity
+  mapper-locations: classpath:mapper/*.xml
+mapper:
+  mappers: com.kerwin.springboot.util.MyMapper
+  not-empty: false
+  identity: MYSQL
+
+#分页
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
