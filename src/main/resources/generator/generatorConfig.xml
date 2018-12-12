@@ -48,8 +48,10 @@
         <!--生成的pojo类包-->
         <javaModelGenerator targetPackage="com.kerwin.springboot.entity" targetProject="src/main/java"/>
 
+        <!--生成mapper.xml-->
         <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
 
+        <!--生成mapper接口-->
         <javaClientGenerator targetPackage="com.kerwin.springboot.mapper" targetProject="src/main/java"
                              type="XMLMAPPER"/>
 
