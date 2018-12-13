@@ -58,5 +58,8 @@
         <table tableName="users">
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
+
+        <table tableName="china"/>
+        <table tableName="t_area"/>
     </context>
 </generatorConfiguration>

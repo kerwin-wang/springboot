@@ -16,7 +16,7 @@ spring:
         enabled: true
   #数据源配置
   datasource:
-      url: jdbc:mysql:192.168.9.23:3306/test
+      url: jdbc:mysql://192.168.9.23:3306/test?characterEncoding=UTF8&useSSL=false
       username: test
       password: test
       driver-class-name: com.mysql.jdbc.Driver
