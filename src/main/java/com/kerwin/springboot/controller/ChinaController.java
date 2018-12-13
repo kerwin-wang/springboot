@@ -36,7 +36,7 @@ public class ChinaController
         int pageSize = 10;
         //        China china = new China();
 
-        List<China> chinas = chinaService.getAllChina();
+        List<China> chinas = chinaService.getAllChina(page,pageSize);
 
         map.put("data", chinas);
         return map;

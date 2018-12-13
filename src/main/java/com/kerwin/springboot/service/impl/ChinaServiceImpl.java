@@ -1,5 +1,6 @@
 package com.kerwin.springboot.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.kerwin.springboot.entity.China;
 import com.kerwin.springboot.mapper.ChinaMapper;
 import com.kerwin.springboot.service.ChinaService;
@@ -22,8 +23,10 @@ public class ChinaServiceImpl implements ChinaService
     private ChinaMapper chinaMapper;
 
     @Override
-    public List<China> getAllChina()
+    public List<China> getAllChina(int page,int pageSiz)
     {
+        PageHelper.startPage(page, pageSiz);
+
         return chinaMapper.selectAll();
     }
 }

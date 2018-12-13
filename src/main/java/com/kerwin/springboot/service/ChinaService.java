@@ -13,5 +13,5 @@ import java.util.List;
  */
 public interface ChinaService
 {
-    List<China> getAllChina();
+    List<China> getAllChina(int page,int pageSiz);
 }
