@@ -2,8 +2,8 @@ package com.kerwin.springboot.mapper;
 
 import com.kerwin.springboot.entity.Users;
 import com.kerwin.springboot.util.MyMapper;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public interface UsersMapper extends MyMapper<Users> {
 }
