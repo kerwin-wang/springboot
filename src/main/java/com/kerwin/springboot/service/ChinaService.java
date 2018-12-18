@@ -13,5 +13,7 @@ import java.util.List;
  */
 public interface ChinaService
 {
-    List<China> getAllChina(int page,int pageSiz);
+    List<China> getAllChina(China china, int page,int pageSiz);
+
+    China getChinaById(Integer id);
 }

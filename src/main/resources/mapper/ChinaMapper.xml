@@ -9,4 +9,9 @@
     <result column="Name" property="name" jdbcType="VARCHAR" />
     <result column="Pid" property="pid" jdbcType="INTEGER" />
   </resultMap>
+
+  <select id="getChinaById" resultType="com.kerwin.springboot.entity.China" parameterType="integer">
+    select * from china where china.id = #{id};
+  </select>
+
 </mapper>

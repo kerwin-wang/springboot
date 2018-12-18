@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ChinaMapper extends MyMapper<China> {
+    China getChinaById(Integer id);
 }

@@ -36,10 +36,15 @@ public class ChinaController
         int pageSize = 10;
         //        China china = new China();
 
-        List<China> chinas = chinaService.getAllChina(page,pageSize);
+        List<China> chinas = chinaService.getAllChina(new China(),page,pageSize);
 
         map.put("data", chinas);
         return map;
+    }
+
+    @RequestMapping("/getChinaById")
+    public China getChinaById(Integer id){
+        return chinaService.getChinaById(id);
     }
 
 }
