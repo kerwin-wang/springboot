@@ -1,96 +1,58 @@
 package com.kerwin.springboot.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
+import javax.persistence.*;
 
-import java.io.Serializable;
-import java.util.Date;
+@Table(name = "user")
+public class User {
+    @Id
+    @Column(name = "ID")
+    private Integer id;
 
-/**
- * @ClassName: User
- * @Description:
- * @version: v1.0.0
- * @Author: d.wang
- * @Date: 2018-12-10 15:19
- */
-@JsonIgnoreProperties({"password"})
-public class User implements Serializable
-{
+    @Column(name = "USER_NAME")
+    private String userName;
 
-    private static final long serialVersionUID = 8620637297453154414L;
+    @Column(name = "USER_PASSWORD")
+    private String userPassword;
 
-    private String name;
-
-    private String password;
-
-    private int age;
-
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss a",locale = "zh",timezone = "GMT+8")
-    private Date birthday;
-
-    private int sex;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private String dec;
-
-    public String getName()
-    {
-        return name;
+    /**
+     * @return ID
+     */
+    public Integer getId() {
+        return id;
     }
 
-    public void setName(String name)
-    {
-        this.name = name;
+    /**
+     * @param id
+     */
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getPassword()
-    {
-        return password;
+    /**
+     * @return USER_NAME
+     */
+    public String getUserName() {
+        return userName;
     }
 
-    public void setPassword(String password)
-    {
-        this.password = password;
+    /**
+     * @param userName
+     */
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public int getAge()
-    {
-        return age;
+    /**
+     * @return USER_PASSWORD
+     */
+    public String getUserPassword() {
+        return userPassword;
     }
 
-    public void setAge(int age)
-    {
-        this.age = age;
-    }
-
-    public Date getBirthday()
-    {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday)
-    {
-        this.birthday = birthday;
-    }
-
-    public int getSex()
-    {
-        return sex;
-    }
-
-    public void setSex(int sex)
-    {
-        this.sex = sex;
-    }
-
-    public String getDec()
-    {
-        return dec;
-    }
-
-    public void setDec(String dec)
-    {
-        this.dec = dec;
+    /**
+     * @param userPassword
+     */
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 }

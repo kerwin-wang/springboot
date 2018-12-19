@@ -1,13 +1,14 @@
 package com.kerwin.springboot.controller;
 
 import com.kerwin.springboot.entity.User;
-import com.kerwin.springboot.entity.Users;
 import com.kerwin.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -15,7 +16,7 @@ import java.util.Date;
  * @Description:
  * @version: v1.0.0
  * @Author: d.wang
- * @Date: 2018-12-10 14:15
+ * @Date: 2018-12-19 10:51
  */
 @RestController
 public class UserController
@@ -23,24 +24,21 @@ public class UserController
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "hello",method = RequestMethod.GET)
-    public User say(){
-        User user = new User();
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
-        user.setName("李六");
-        user.setPassword("123456");
-        user.setAge(18);
-        user.setBirthday(new Date());
-        user.setSex(2);
-        user.setDec(null);
-        return user;
+    @RequestMapping(value = "/update",method = RequestMethod.GET)
+    public void updateUser(){
+        User user = new User();
+        user.setId(3);
+        user.setUserName("何三");
+        user.setUserPassword("1324");
+
+        userService.updateUser(user);
     }
 
-    @RequestMapping("/queryUsers")
-    public Users queryUsers(){
-        Users users = new Users();
-        users.setId(24);
-        users.setUserId("1");
-        return userService.queryUser(users);
+//    @Scheduled(fixedRate = 3000)
+    @Scheduled(cron = "1-14 * * * * ? ")
+    public void schedule(){
+        System.out.println("当前时间: "+dateFormat.format(new Date()));
     }
 }

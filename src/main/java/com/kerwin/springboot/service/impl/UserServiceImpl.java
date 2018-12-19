@@ -1,7 +1,7 @@
 package com.kerwin.springboot.service.impl;
 
-import com.kerwin.springboot.entity.Users;
-import com.kerwin.springboot.mapper.UsersMapper;
+import com.kerwin.springboot.entity.User;
+import com.kerwin.springboot.mapper.UserMapper;
 import com.kerwin.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,37 +11,22 @@ import org.springframework.stereotype.Service;
  * @Description:
  * @version: v1.0.0
  * @Author: d.wang
- * @Date: 2018-12-11 13:39
+ * @Date: 2018-12-19 10:52
  */
 @Service
 public class UserServiceImpl implements UserService
 {
     @Autowired
-    private UsersMapper usersMapper;
+    private UserMapper userMapper;
 
     @Override
-    public void addUser(Users users)
+//    @Transactional(propagation = Propagation.REQUIRED)
+    public void updateUser(User user)
     {
-        usersMapper.insert(users);
-    }
+        userMapper.deleteByPrimaryKey(4);
 
-    @Override
-    public void deleteUser(Integer id)
-    {
-        usersMapper.deleteByPrimaryKey(id);
-    }
+        int a = 1/0;
 
-    @Override
-    public void updateUser(Users users)
-    {
-        usersMapper.updateByPrimaryKeySelective(users);
-    }
-
-    @Override
-    public Users queryUser(Users user)
-    {
-        Users o = (Users) usersMapper.selectOne(user);
-        System.out.println("users = "+o);
-        return o;
+        userMapper.updateByPrimaryKeySelective(user);
     }
 }
