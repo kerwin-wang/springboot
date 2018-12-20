@@ -27,6 +27,13 @@ spring:
   #      test-on-borrow: true
   #      start-view-servlet:
   #        allow: true
+
+  #发送邮件
+  mail:
+    host: smtp.qq.com
+    username: 568411424@qq.com
+    password: jydgfcvdyqpzbeie
+    default-encoding: utf-8
 #mapper重启
 restart:
   include:
@@ -47,3 +54,4 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+

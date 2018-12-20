@@ -3,7 +3,7 @@ package com.kerwin.springboot.controller;
 import com.kerwin.springboot.entity.User;
 import com.kerwin.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +19,7 @@ import java.util.Date;
  * @Date: 2018-12-19 10:51
  */
 @RestController
+@CrossOrigin
 public class UserController
 {
     @Autowired
@@ -37,7 +38,7 @@ public class UserController
     }
 
 //    @Scheduled(fixedRate = 3000)
-    @Scheduled(cron = "1-14 * * * * ? ")
+//    @Scheduled(cron = "1-14 * * * * ? ")
     public void schedule(){
         System.out.println("当前时间: "+dateFormat.format(new Date()));
     }
